@@ -1567,7 +1567,7 @@ public class Configuration implements Serializable {
 			String dependentTable = quotedTableName(sp.getValue().getTable());
 			if ( dependentTable.compareTo( startTable ) == 0 ) {
 				String sb = "Foreign key circularity dependency involving the following tables: ";
-				throw new AnnotationException( sb );
+				throw new AnnotationException( sb + dependentTable);
 			}
 			buildRecursiveOrderedFkSecondPasses( orderedFkSecondPasses, isADependencyOf, startTable, dependentTable );
 			if ( !orderedFkSecondPasses.contains( sp ) ) {
