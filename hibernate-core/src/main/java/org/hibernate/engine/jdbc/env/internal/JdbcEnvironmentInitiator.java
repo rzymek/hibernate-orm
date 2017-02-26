@@ -117,9 +117,6 @@ public class JdbcEnvironmentInitiator implements StandardServiceInitiator<JdbcEn
 							dbmd
 					);
 				}
-				catch (SQLException e) {
-					log.unableToObtainConnectionMetadata( e.getMessage() );
-				}
 				finally {
 					try {
 						jdbcConnectionAccess.releaseConnection( connection );
@@ -129,7 +126,7 @@ public class JdbcEnvironmentInitiator implements StandardServiceInitiator<JdbcEn
 				}
 			}
 			catch (Exception e) {
-				log.unableToObtainConnectionToQueryMetadata( e.getMessage() );
+				throw new HibernateException("Could not obtain connection to query metadata", e);
 			}
 		}
 

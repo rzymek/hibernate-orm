@@ -1158,14 +1158,6 @@ public interface CoreMessageLogger extends BasicLogger {
 	@Message(value = "Could not obtain connection to query metadata: %s", id = 340)
 	void unableToObjectConnectionToQueryMetadata(SQLException error);
 
-	@LogMessage(level = WARN)
-	@Message(value = "Could not obtain connection metadata : %s", id = 341)
-	void unableToObtainConnectionMetadata(String message);
-
-	@LogMessage(level = WARN)
-	@Message(value = "Could not obtain connection to query metadata : %s", id = 342)
-	void unableToObtainConnectionToQueryMetadata(String message);
-
 	@LogMessage(level = ERROR)
 	@Message(value = "Could not obtain initial context", id = 343)
 	void unableToObtainInitialContext(@Cause NamingException e);
